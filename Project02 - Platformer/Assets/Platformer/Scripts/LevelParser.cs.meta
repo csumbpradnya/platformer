@@ -9,6 +9,8 @@ MonoImporter:
   - questionBoxPrefab: {fileID: 2652198492393551387, guid: 97d0fe6850ab3714eaa654f26f4ca9f8, type: 3}
   - stonePrefab: {fileID: 2652198492393551387, guid: e2bf2963d586ea44ea04e84c9ae1fa8e, type: 3}
   - environmentRoot: {instanceID: 0}
+  - waterPrefab: {fileID: 3651396860811545674, guid: d70e73f5c3f3e3c4081fe46c33263a2c, type: 3}
+  - finishPrefab: {fileID: 2333769311552075574, guid: 1947d06c319d3144e932786424909323, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

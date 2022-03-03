@@ -7,27 +7,24 @@ public class Brick : MonoBehaviour
     [SerializeField] private TMP_Text coins;
     private int coinCounter;
 
+    private GameObject mario;
     // Update is called once per frame
-    void Update () {
-        if (Input.GetMouseButtonUp (0)) {
-            Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, 100f));
-            Vector3 direction = worldMousePosition - Camera.main.transform.position;
-
-            RaycastHit hit;
-            if (Physics.Raycast (Camera.main.transform.position, direction, out hit, 100f)) {
-
-                Debug.DrawLine (Camera.main.transform.position, hit.point, Color.green, 0.5f);
-                if (hit.collider.gameObject.tag == "brick") {
+    void Update ()
+    {
+        mario = GameObject.Find("Mario");
+        RaycastHit hit; 
+        Score score = GameObject.Find("MarioUI").GetComponent<Score>();
+        if (Physics.Raycast (mario.transform.position, Vector3.up + new Vector3(0,0.1f,0f), out hit, 1.79f)) {
+            if (hit.collider.gameObject.tag == "brick") {
                     Destroy (hit.collider.gameObject);
+                    score.updateScore();
                 }
                 else if (hit.collider.gameObject.tag == "coin")
                 {
                     coinCounter++;
                     coins.SetText("xx"+coinCounter.ToString());
+                    score.updateScore();
                 }
-            } else {
-                Debug.DrawLine (Camera.main.transform.position, worldMousePosition, Color.red, 0.5f);
-            }
-        }
+            } 
     }
 }

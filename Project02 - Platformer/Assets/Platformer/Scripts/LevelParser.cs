@@ -10,6 +10,8 @@ public class LevelParser : MonoBehaviour
     public GameObject questionBoxPrefab;
     public GameObject stonePrefab;
     public Transform environmentRoot;
+    public GameObject waterPrefab;
+    public GameObject finishPrefab;
 
     // --------------------------------------------------------------------------
     void Start()
@@ -82,6 +84,19 @@ public class LevelParser : MonoBehaviour
                     var questionPre = Instantiate(questionBoxPrefab);
                     questionPre.transform.position = new Vector3(column, row, 0f);
                     questionPre.tag = "coin";
+                }
+
+                if (letter == 'w')
+                {
+                    var waterPre = Instantiate(waterPrefab);
+                    waterPre.transform.position = new Vector3(column, row, 0f);
+                }
+
+                if (letter == 'f')
+                {
+                    var finishPre = Instantiate(finishPrefab);
+                    finishPre.transform.position = new Vector3(column, row, 0f);
+                    finishPre.AddComponent(typeof(Finish));
                 }
                 // Todo - Position the new GameObject at the appropriate location by using row and column
                 // Todo - Parent the new GameObject under levelRoot

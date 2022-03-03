@@ -6,7 +6,7 @@ using UnityEngine;
 public class NewBehaviourScript : MonoBehaviour
 {
     private float accumulatedTime = 0f;
-    private float totalRoundTime = 400f;
+    private float totalRoundTime = 100f;
     [SerializeField] private TMP_Text timer;
     
     
@@ -19,7 +19,13 @@ public class NewBehaviourScript : MonoBehaviour
             totalRoundTime = totalRoundTime - 1f;
             accumulatedTime = 0f;
             timer.SetText("\n" + totalRoundTime.ToString());
+
+            if (totalRoundTime < 1f)
+            {
+                Debug.Log("you lost...");
+            }
         }
+        
         
         
     }
